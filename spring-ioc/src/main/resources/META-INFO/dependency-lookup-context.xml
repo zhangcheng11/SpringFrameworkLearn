@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.stone.string.ioc.domain.User">
+        <property name="id" value="1"/>
+        <property name="name" value="zhangcheng"/>
+    </bean>
+
+    <bean id="superUser" class="com.stone.string.ioc.domain.SuperUser" parent="user">
+        <property name="address" value="杭州"/>
+    </bean>
+
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+</beans>
